@@ -15,13 +15,12 @@ public:
             slow = slow->next;
             fast = fast->next->next;
         }
-        fast = slow->next;
-        while (fast)
+        while (slow)
         {
-            r = fast->next;
-            fast->next = pre;
-            pre = fast;
-            fast = r;
+            r = slow->next;
+            slow->next = pre;
+            pre = slow;
+            slow = r;
         }
         for (slow = head, fast = pre; fast; slow = slow->next, fast = fast->next)
             if (slow->val != fast->val)
@@ -29,3 +28,10 @@ public:
         return true;
     }
 };
+TEST(PalindromeLinkedList, 2)
+{
+    Solution s;
+    ListNode *head = new ListNode(1);
+    head->next = new ListNode(2);
+    EXPECT_FALSE(s.isPalindrome(head));
+}
