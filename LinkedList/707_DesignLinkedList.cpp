@@ -19,23 +19,22 @@ public:
         if (index < 0 || index >= size)
             return EOF;
         shared_ptr<LinkList> node = head->next;
-        while (node && index--)
+        while (index--)
             node = node->next;
         return node->val;
     }
     void addAtHead(int val)
     {
-        shared_ptr<LinkList> node(new LinkList(val));
-        node->next = head->next;
+        shared_ptr<LinkList> node(make_shared<LinkList>(val, head->next));
         head->next = node->next;
         ++size;
     }
     void addAtTail(int val)
     {
-        shared_ptr<LinkList> node(new LinkList(val)), tail = head;
+        shared_ptr<LinkList> tail = head;
         while (tail->next)
             tail = tail->next;
-        tail->next = node;
+        tail->next = make_shared<LinkList>(val);
         ++size;
     }
     void addAtIndex(int index, int val)
@@ -44,7 +43,7 @@ public:
             addAtHead(val);
         if (index >= size)
             return;
-        shared_ptr<LinkList> i = head, node(new LinkList(val));
+        shared_ptr<LinkList> i = head, node(make_shared<LinkList>(val));
         while (index--)
             i = i->next;
         node->next = i->next;
