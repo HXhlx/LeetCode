@@ -7,7 +7,7 @@ class MyQueue
     int front;
 
 public:
-    MyQueue() {}
+    MyQueue() = default;
     void push(int x)
     {
         if (s1.empty())
