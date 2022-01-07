@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(BinaryTree)
+project(DataStructureBinaryTree)
 set(CMAKE_CXX_STANDARD 23)
 # include_directories(${PROJECT_SOURCE_DIR}/include)
 aux_source_directory(. BINARYTREE)
