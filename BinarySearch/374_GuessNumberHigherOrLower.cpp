@@ -16,7 +16,7 @@ class Solution
     {
         for (size_t l = 1, h = n; l < h;)
         {
-            size_t m = (l + h) >> 1;
+            size_t m = midpoint(l, h);
             switch (guess(m))
             {
             case -1:

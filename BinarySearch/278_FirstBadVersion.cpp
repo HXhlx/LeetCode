@@ -10,7 +10,7 @@ public:
         size_t low = 0, high = n;
         while (low < high)
         {
-            size_t mid = (low + high) / 2;
+            size_t mid = midpoint(low, high);
             if (isBadVersion(mid))
                 high = mid;
             else

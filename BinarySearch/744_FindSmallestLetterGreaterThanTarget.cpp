@@ -11,7 +11,7 @@ public:
             return letters.front();
         while (l < h)
         {
-            wint_t m = (l + h) >> 1;
+            wint_t m = midpoint(l, h);
             if (letters[m] > target)
                 h = m;
             else if (letters[m] <= target)

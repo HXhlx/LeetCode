@@ -10,7 +10,7 @@ public:
         int l = 0, h = nums.back() - nums.front();
         while (l < h)
         {
-            int m = (l + h) >> 1, c = 0;
+            int m = midpoint(l, h), c = 0;
             for (vector<int>::iterator L = nums.begin(), R = nums.begin(); R != nums.end(); ++R)
             {
                 while (*R - *L > m)

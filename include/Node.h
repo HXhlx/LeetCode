@@ -1,11 +1,11 @@
 class Node
 {
 public:
-    int val;
-    Node *child, *left, *next, *prev, *random, *right;
-    std::vector<Node *> neighbors;
-    Node() : val(0), left(nullptr), right(nullptr), next(nullptr) {}
-    Node(int _val) : val(_val), left(nullptr), right(nullptr), next(nullptr), random(nullptr) {}
-    Node(int _val, vector<Node *> _neighbors) : val(_val), neighbors(_neighbors) {}
+    int val = 0;
+    Node *child = nullptr, *left = nullptr, *next = nullptr, *prev = nullptr, *random = nullptr, *right = nullptr;
+    std::vector<Node *> neighbors, children;
+    Node() = default;
+    Node(int _val) : val(_val) {}
+    Node(int _val, vector<Node *> cn) : val(_val), neighbors(cn), children(cn) {}
     Node(int _val, Node *_left, Node *_right, Node *_next) : val(_val), left(_left), right(_right), next(_next) {}
 };

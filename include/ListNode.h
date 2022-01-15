@@ -1,8 +1,8 @@
 struct ListNode
 {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
+    int val = 0;
+    ListNode *next = nullptr;
+    ListNode() = default;
+    ListNode(int x) : val(x) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };

@@ -9,7 +9,7 @@ public:
         int l = *max_element(nums.begin(), nums.end()), h = accumulate(nums.begin(), nums.end(), 0);
         while (l < h)
         {
-            int mid = (l + h) >> 1, sum = 0, c = 1;
+            int mid = midpoint(l, h), sum = 0, c = 1;
             for (int n : nums)
             {
                 sum += n;

@@ -13,7 +13,7 @@ class Solution
             return vector<int>(arr.end() - k, arr.end());
         while (h - l + 1 > k)
         {
-            int m = (l + h) >> 1;
+            int m = midpoint(l, h);
             if (arr[m] > x)
                 h = m - l + 1 >= k ? m : l + k - 1;
             else if (arr[m] < x)

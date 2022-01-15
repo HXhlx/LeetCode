@@ -6,27 +6,9 @@ class Solution
 public:
     int strStr(string haystack, string needle)
     {
-        int m = needle.size(), n = haystack.size();
-        if (m == 0)
+        if (needle.empty())
             return 0;
-        vector<int> pi(m);
-        for (int i = 1, j = 0; i < m; ++i)
-        {
-            while (j > 0 && needle[i] != needle[j])
-                j = pi[j - 1];
-            if (needle[i] == needle[j])
-                ++j;
-            pi[i] = j;
-        }
-        for (int i = 0, j = 0; i < n; ++i)
-        {
-            while (j > 0 && haystack[i] != needle[j])
-                j = pi[j - 1];
-            if (haystack[i] == needle[j])
-                ++j;
-            if (j == m)
-                return i - m + 1;
-        }
-        return EOF;
+        string::iterator it = search(haystack.begin(), haystack.end(), boyer_moore_horspool_searcher(needle.begin(), needle.end()));
+        return it == haystack.end() ? EOF : distance(haystack.begin(), it);
     }
 };

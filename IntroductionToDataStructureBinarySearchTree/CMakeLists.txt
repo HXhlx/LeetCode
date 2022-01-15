@@ -1,4 +1,4 @@
-project("BinarySearchTree")
+project("IntroductionToDataStructureBinarySearchTree")
 aux_source_directory(. BINARYSEARCHTREE)
 foreach(T_FILE_NAME ${BINARYSEARCHTREE})
     string(REGEX REPLACE ".cpp" "" EXECUTABLE_NAME ${T_FILE_NAME})

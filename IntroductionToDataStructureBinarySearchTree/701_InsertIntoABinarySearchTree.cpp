@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/extc++.h>
 #include <gtest/gtest.h>
 #include "TreeNode.h"
 using namespace std;
@@ -9,8 +9,7 @@ public:
     {
         if (!root)
             return new TreeNode(val);
-        TreeNode *node = root;
-        while (node)
+        for (TreeNode *&node = root; node;)
             if (node->val > val)
             {
                 if (node->left)
