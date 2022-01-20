@@ -9,7 +9,7 @@ public:
         int n = nums.size(), pre = -1, post = n;
         for (int low = 0, high = n - 1; low <= high;)
         {
-            int mid = midpoint(low, high);
+            int mid = (low + high) >> 1;
             if (nums[mid] < target)
                 low = mid + 1;
             else if (nums[mid] > target)

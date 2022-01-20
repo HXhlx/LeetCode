@@ -6,18 +6,11 @@ class Solution
 public:
     int tribonacci(int n)
     {
-        if (n <= 1)
-            return n;
-        if (n == 2)
-            return 1;
-        int a = 0, b = 1, c = 1;
+        if (n <= 2)
+            return ceil(double(n) / 2);
+        tuple<int, int, int> fib(0, 1, 1);
         for (int i = 3; i <= n; ++i)
-        {
-            int temp = a + b + c;
-            a = b;
-            b = c;
-            c = temp;
-        }
-        return c;
+            fib = {get<1>(fib), get<2>(fib), get<0>(fib) + get<1>(fib) + get<2>(fib)};
+        return get<2>(fib);
     }
 };
