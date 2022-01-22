@@ -4,7 +4,7 @@ using namespace std;
 class Solution
 {
 public:
-    int findMaximumXOR(vector<int> &nums)
+    vector<vector<int>> palindromePairs(vector<string> &words)
     {
     }
 };
