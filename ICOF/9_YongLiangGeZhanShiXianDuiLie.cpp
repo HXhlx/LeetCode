@@ -23,6 +23,8 @@ public:
             s2.emplace(s1.top());
             s1.pop();
         }
+        if (s2.empty())
+            return EOF;
         int res = s2.top();
         s2.pop();
         return res;

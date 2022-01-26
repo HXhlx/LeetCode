@@ -1,7 +1,6 @@
 #include <bits/extc++.h>
 #include <gtest/gtest.h>
 using namespace std;
-using namespace __gnu_pbds;
 class Solution
 {
 public:
