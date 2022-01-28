@@ -1,6 +1,7 @@
 #include <bits/extc++.h>
 #include <gtest/gtest.h>
 using namespace std;
+using namespace __gnu_pbds;
 struct Tree
 {
     array<shared_ptr<Tree>, 26> sub{};

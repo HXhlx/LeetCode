@@ -6,10 +6,10 @@ class Solution
 public:
     int findMin(vector<int> &nums)
     {
-        int low = 0, high = nums.size() - 1;
+        wint_t low = 0, high = nums.size() - 1;
         while (low < high)
         {
-            int mid = midpoint(low, high);
+            wint_t mid = (low + high) >> 1;
             if (nums[mid] < nums[high])
                 high = mid;
             else if (nums[mid] > nums[high])
