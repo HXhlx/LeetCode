@@ -15,12 +15,12 @@ public:
 };
 class NestedIterator
 {
-    stack<pair<vector<NestedInteger>::iterator, vector<NestedInteger>::iterator>> iters;
+    stack<pair<vector<NestedInteger>::const_iterator, vector<NestedInteger>::const_iterator>> iters;
 
 public:
     NestedIterator(vector<NestedInteger> &nestedList)
     {
-        iters.emplace(nestedList.begin(), nestedList.end());
+        iters.emplace(nestedList.cbegin(), nestedList.cend());
     }
     int next()
     {
@@ -30,7 +30,7 @@ public:
     {
         while (!iters.empty())
         {
-            pair<vector<NestedInteger>::iterator, vector<NestedInteger>::iterator> &p = iters.top();
+            pair<vector<NestedInteger>::const_iterator, vector<NestedInteger>::const_iterator> &p = iters.top();
             if (p.first == p.second)
                 iters.pop();
             else if (p.first->isInteger())

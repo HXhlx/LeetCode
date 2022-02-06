@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
-#include "TreeNode.h"
+#include <bits/extc++.h>
+#include "TreeNode.hpp"
 using namespace std;
 class Solution
 {

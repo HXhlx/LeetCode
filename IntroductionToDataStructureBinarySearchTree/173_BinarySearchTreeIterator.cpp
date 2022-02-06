@@ -1,6 +1,6 @@
 #include <bits/extc++.h>
 #include <gtest/gtest.h>
-#include "TreeNode.h"
+#include "TreeNode.hpp"
 using namespace std;
 class BSTIterator
 {

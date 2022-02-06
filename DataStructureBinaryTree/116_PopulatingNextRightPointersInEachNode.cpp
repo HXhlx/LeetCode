@@ -1,6 +1,6 @@
-#include <bits/stdc++.h>
+#include <bits/extc++.h>
 #include <gtest/gtest.h>
-#include "Node.h"
+#include "Node.hpp"
 using namespace std;
 class Solution
 {
