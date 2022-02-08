@@ -1,3 +1,4 @@
+// Definition for a Node.
 class Node
 {
 public:
@@ -7,5 +8,6 @@ public:
     Node() = default;
     Node(int _val) : val(_val) {}
     Node(int _val, std::vector<Node *> cn) : val(_val), neighbors(cn), children(cn) {}
+    Node(int _val, Node *_left, Node *_right) : val(_val), left(_left), right(_right) {}
     Node(int _val, Node *_left, Node *_right, Node *_next) : val(_val), left(_left), right(_right), next(_next) {}
 };
