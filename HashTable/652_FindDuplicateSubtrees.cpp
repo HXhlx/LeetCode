@@ -4,18 +4,30 @@
 using namespace std;
 class Solution
 {
-    wint_t t;
-    unordered_map<string, wint_t> trees;
-    unordered_map<wint_t,wint_t>c;
-    vector<TreeNode *> ans;
-    wint_t lookup(TreeNode*node){
-        if(node==nullptr)
+    array<wint_t, 10000> counts{};
+    map<pair<int, pair<wint_t, wint_t>>, int> links;
+    vector<TreeNode *> fds;
+    wint_t index = 1;
+    wint_t DFS(TreeNode *node)
+    {
+        if (node)
+        {
+            pair<int, pair<wint_t, wint_t>> cur{node->val, {DFS(node->left), DFS(node->right)}};
+            if (links.find(cur) == links.end())
+                links[cur] = index++;
+            wint_t idx = links[cur];
+            if (++counts[idx] == 2)
+                fds.emplace_back(node);
+            return idx;
+        }
+        else
             return 0;
-        string serial = to_string(node->val) + "," + to_string(lookup(node->left)) + "," + to_string(lookup(node->right));
     }
 
 public:
     vector<TreeNode *> findDuplicateSubtrees(TreeNode *root)
     {
+        DFS(root);
+        return fds;
     }
 };

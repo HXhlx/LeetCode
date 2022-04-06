@@ -11,7 +11,7 @@ public:
         int s1 = nums1.size(), s2 = nums2.size(), l = 0, r = s1, m1 = 0, m2 = 0;
         while (l <= r)
         {
-            int i = midpoint(l, r), j = (s1 + s2 + 1) / 2 - i, ni1 = i ? nums1[i - 1] : INT_MIN, ni = i == s1 ? INT_MAX : nums1[i], nj1 = j ? nums2[j - 1] : INT_MIN, nj = j == s2 ? INT_MAX : nums2[j];
+            int i = (l + r) >> 1, j = (s1 + s2 + 1) / 2 - i, ni1 = i ? nums1[i - 1] : INT_MIN, ni = i == s1 ? INT_MAX : nums1[i], nj1 = j ? nums2[j - 1] : INT_MIN, nj = j == s2 ? INT_MAX : nums2[j];
             if (ni1 <= nj)
             {
                 m1 = max(ni1, nj1);

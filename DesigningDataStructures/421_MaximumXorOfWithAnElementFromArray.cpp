@@ -4,8 +4,24 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> maximizeXor(vector<int> &nums, vector<vector<int>> &queries)
+    int findMaximumXOR(vector<int> &nums)
     {
-        vector<int> answer(queries.size());
+        int x = 0;
+        for (int k = 30; k >= 0; --k)
+        {
+            unordered_set<int> seen;
+            for (int num : nums)
+                seen.insert(num >> k);
+            int x_next = x * 2 + 1;
+            bool found = false;
+            for (int num : nums)
+                if (seen.find(x_next ^ (num >> k)) != seen.end())
+                {
+                    found = true;
+                    break;
+                }
+            x = x_next - !found;
+        }
+        return x;
     }
 };

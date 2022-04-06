@@ -6,18 +6,8 @@ class Solution
 public:
     int search(vector<int> &nums, int target)
     {
-        int low = 0, high = nums.size() - 1;
-        while (low <= high)
-        {
-            int mid = midpoint(low, high);
-            if (nums[mid] < target)
-                low = mid + 1;
-            else if (nums[mid] > target)
-                high = mid - 1;
-            else
-                return mid;
-        }
-        return EOF;
+        vector<int>::iterator it = lower_bound(nums.begin(), nums.end(), target);
+        return it == nums.end() || *it != target ? EOF : distance(nums.begin(), it);
     }
 };
 TEST(BinarySearch, 1)

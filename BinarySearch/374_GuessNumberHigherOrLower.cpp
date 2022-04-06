@@ -11,12 +11,12 @@ using namespace std;
 int guess(int num);
 class Solution
 {
-  public:
+public:
     int guessNumber(int n)
     {
         for (size_t l = 1, h = n; l < h;)
         {
-            size_t m = midpoint(l, h);
+            size_t m = (l + h) >> 1;
             switch (guess(m))
             {
             case -1:
@@ -24,7 +24,6 @@ class Solution
                 break;
             case 0:
                 return m;
-                break;
             case 1:
                 l = m + 1;
                 break;
