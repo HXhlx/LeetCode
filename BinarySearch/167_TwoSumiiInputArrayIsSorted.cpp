@@ -8,7 +8,7 @@ public:
     {
         for (int i = 0, j = numbers.size() - 1; i < j;)
         {
-            int m = midpoint(i, j);
+            int m = (i + j) >> 1;
             if (numbers[i] + numbers[m] > target)
                 j = m - 1;
             else if (numbers[m] + numbers[j] < target)

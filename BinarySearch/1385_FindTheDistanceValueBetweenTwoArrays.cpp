@@ -11,7 +11,7 @@ public:
         sort(arr2.begin(), arr2.end());
         for (vector<int>::iterator a1 = arr1.begin(), a2 = arr2.begin(); a1 != arr1.end(); ++a1)
         {
-            a2 = lower_bound(a2, arr2.end(), *a1);
+            a2 = find(a2, arr2.end(), *a1);
             if (a2 != arr2.begin() && abs(*a1 - *(a2 - 1)) <= d || a2 != arr2.end() && abs(*a1 - *a2) <= d)
                 --ftdv;
         }
