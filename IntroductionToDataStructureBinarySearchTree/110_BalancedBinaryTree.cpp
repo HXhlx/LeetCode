@@ -1,5 +1,5 @@
 #include <bits/extc++.h>
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include "TreeNode.hpp"
 using namespace std;
 class Solution
@@ -19,7 +19,6 @@ class Solution
 public:
     bool isBalanced(TreeNode *root)
     {
-        auto [a, _] = AVL(root);
-        return a;
+        return AVL(root).first;
     }
 };
