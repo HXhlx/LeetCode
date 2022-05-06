@@ -7,40 +7,35 @@ class Solution
   public:
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
     {
-        bool ls = false;
-        ListNode *atn = new ListNode, *l = atn;
+        ListNode *atn = nullptr;
         stack<int> atn1, atn2;
-        for (ListNode *ln1 = l1; ln1; ln1 = ln1->next)
-            atn1.emplace(ln1->val);
-        for (ListNode *ln2 = l2; ln2; ln2 = ln2->next)
-            atn2.emplace(ln2->val);
-        while (!atn1.empty() && !atn2.empty())
+        while (l1)
         {
-            l->next = new ListNode(atn1.top() + atn2.top() + ls);
-            l = l->next;
-            ls = l->val / 10;
-            l->val %= 10;
-            atn1.pop();
-            atn2.pop();
+            atn1.emplace(l1->val);
+            l1 = l1->next;
         }
-        while (!atn1.empty())
+        while (l2)
         {
-            l->next = new ListNode(atn1.top() + ls);
-            l = l->next;
-            ls = l->val /= 10;
-            l->val %= 10;
-            atn1.pop();
+            atn2.emplace(l2->val);
+            l2 = l2->next;
         }
-        while (!atn2.empty())
+        for (bool al = false; !atn1.empty() || !atn2.empty() || al;)
         {
-            l->next = new ListNode(atn2.top() + ls);
-            l = l->next;
-            ls = l->val /= 10;
-            l->val %= 10;
-            atn2.pop();
+            ListNode *ln = new ListNode(al, atn);
+            if (!atn1.empty())
+            {
+                ln->val += atn1.top();
+                atn1.pop();
+            }
+            if (!atn2.empty())
+            {
+                ln->val += atn2.top();
+                atn2.pop();
+            }
+            al = ln->val / 10;
+            ln->val %= 10;
+            atn = ln;
         }
-        if (ls)
-            l->next = new ListNode(ls);
-        return atn->next;
+        return atn;
     }
 };
